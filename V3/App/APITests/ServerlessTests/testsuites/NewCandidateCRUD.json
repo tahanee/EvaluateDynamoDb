@@ -1,0 +1,162 @@
+{
+	"variables": [],
+	"info": {
+		"name": "NewCandidateCRUD copy copy copy",
+		"_postman_id": "a006ae4f-9a70-3057-78c1-7c76e1ef8fe2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://awsURL/api/Candidate/addCandidates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData;",
+							"",
+							"tests[\"Post request Successful\"] = responseCode.code === 201 || responseCode.code === 200 ;",
+							"",
+							"tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Post Successful Data\"] = jsonData.candidateEmail === \"abc@gmail.com\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://54.69.187.75/Api/Candidate/addCandidates",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Id\" : \"9999\",\n\"ResourceRequisition\" :  \"DevOps Engineer\" , \n\"CandidateEmail\" : \"abc@gmail.com\" ,\n\"Stages\" : 3 , \n\"ResumeText\" : \"abd jfgjgkf fkklkg\",\n\"PanelDeadline\" : \"12/08/2018\" \n\n}\n\n\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://awsURL/Api/Candidate/CandidateData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"GET request Successful\"] = responseCode.code === 201 || responseCode.code === 200 ;",
+							"",
+							"tests[\"Response time is : \" + responseTime] = responseTime < 1000;",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://54.69.187.75/Api/Candidate/9999",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Candidate Get"
+			},
+			"response": []
+		},
+		{
+			"name": "http://awsURL/Api/Candidate/9999",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Response time is less than 2000ms\"] = responseTime < 2000",
+							"",
+							"",
+							"tests[\"Updated Sucessfully 200\"] = responseCode.code === 200 ||  responseCode.code === 201;",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://54.69.187.75/Api/Candidate/9999",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   ResourceRequisition : \"DevOps Engineer e67\",\n    CandidateEmail : \"abc@gmail.com\",\n    Stages : \"3\",\n     PanelDeadline : \"12/08/2018\",\n     ResumeText : \"abd jfgjgkf fkklkg\"\n}"
+				},
+				"description": "Candidate PUT Request."
+			},
+			"response": []
+		},
+		{
+			"name": "http://awsURL/Api/Candidate/9999",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"tests[\"Response time is less than 2000ms\"] = responseTime < 2000;",
+							"",
+							"tests[\"Deleted Sucessfully 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://54.69.187.75/Api/Candidate/9999",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " "
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
